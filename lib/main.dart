@@ -5,6 +5,20 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 
+      title: 'Flutter Demo',
+      theme: new ThemeData(
+        primaryColor: Color.fromRGBO(58, 66, 86, 1.0),
+        fontFamily: 'Raleway',
+        primaryColorBrightness: Brightness.dark,
+      ),
+
+      home: new ListPage(
+        controllers: _controllers,
+      ),
+      // home: DetailPage(),
+    );
+  }
+}
 
 class ListPage extends StatefulWidget {
   ListPage({Key key, this.controllers}) : super(key: key);
