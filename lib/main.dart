@@ -6,7 +6,14 @@ import 'package:flutter/material.dart';
 
 
 
+class ListPage extends StatefulWidget {
+  ListPage({Key key, this.controllers}) : super(key: key);
 
+  final Controllers controllers;
+
+  @override
+  _ListPageState createState() => _ListPageState(controllers);
+}
 
 class _ListPageState extends State<ListPage> with TickerProviderStateMixin {
   final Controllers _controllers;
