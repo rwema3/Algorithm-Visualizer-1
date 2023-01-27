@@ -6,6 +6,18 @@ import 'package:flutter/material.dart';
 
 
 
+		trailing: Icon(Icons.keyboard_arrow_right, color: Colors.white, size: 30.0),
+          onTap: () {
+			  lesson.screenSize = MediaQuery
+				  .of(context)
+				  .size
+				  .width * MediaQuery
+				  .of(context)
+				  .size
+				  .height;
+			  Navigator.push(context, MaterialPageRoute(builder: (context) => DetailPage(lesson, _controllers)));
+          },
+        );
 
     Card makeCard(Lesson lesson) => Card(
           elevation: 8.0,
