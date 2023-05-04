@@ -178,4 +178,31 @@ class GraphHomePage extends HomePage {
         : Container();
   }
 
-  Container 
+  Container getDirectedSwitch(BuildContext context) {
+    return askForInformation(lesson.simulationDetails, lesson.askForDirection)
+        ? Container(
+            padding: EdgeInsets.fromLTRB(10.0, 32.0, 0.0, 0.0),
+            width: MediaQuery.of(context).size.width,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Text(getDirectedMessage(), style: TextStyle(color: Colors.black)),
+                Switch(
+                  value: askForInformation(lesson.simulationDetails, lesson.directed),
+                  onChanged: (value) {
+                    setState(() {
+                      changeSimulationDetails(lesson.directed);
+                      minMaxEdges();
+                    });
+                  },
+                  activeTrackColor: Colors.lightGreenAccent,
+                  activeColor: Colors.green,
+                ),
+              ],
+            ),
+          )
+        : Container();
+  }
+
+  String getStepMessage() {
+	  return (
