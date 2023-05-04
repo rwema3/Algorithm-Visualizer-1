@@ -5,3 +5,6 @@ class GraphHomePage extends HomePage {
 
   Container getSimulationStepSwitch(BuildContext context) {
 	  return Container(
+		  padding: EdgeInsets.symmetric(vertical: 16.0),
+		  width: MediaQuery
+			  .of(context)
