@@ -8,3 +8,28 @@ class GraphHomePage extends HomePage {
 		  padding: EdgeInsets.symmetric(vertical: 16.0),
 		  width: MediaQuery
 			  .of(context)
+			  .size
+			  .width,
+		  child: Row(
+			  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+			  children: <Widget>[
+				  Container(
+					  child: Text(getStepMessage(), style: TextStyle(color: Colors.black)),
+				  ),
+				  Switch(
+					  value: askForInformation(lesson.simulationDetails, lesson.stepByStep),
+					  onChanged: (value) {
+						  setState(() {
+							  changeSimulationDetails(lesson.stepByStep);
+						  });
+					  },
+					  activeTrackColor: Colors.lightGreenAccent,
+					  activeColor: Colors.green,
+				  ),
+			  ],
+		  ));
+  }
+
+  Container getNumberOfEdgesSlider(BuildContext context) {
+    return askForInformation(lesson.simulationDetails, lesson.askForEdges)
+        ? Container(
