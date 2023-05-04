@@ -205,4 +205,34 @@ class GraphHomePage extends HomePage {
   }
 
   String getStepMessage() {
-	  return (
+	  return ((askForInformation(lesson.simulationDetails, lesson.stepByStep)) ? "Step by step simulation: " : "Speed mode Simulation: ");
+  }
+
+  String getEdgesMessage() {
+    return "Number of edges:" + ((lesson.edges == minEdges()) ? "\t(min edges => always a tree)" : "");
+  }
+
+  String getDirectedMessage() {
+    if (askForInformation(lesson.simulationDetails, lesson.directed)) {
+      return "Directed graph:";
+    }
+    return "Undirected graph:";
+  }
+
+  String getWeightedEdgeMessage() {
+    if (askForEdgeInformation()) {
+      return "Weights on edges:";
+    }
+    return "No weights on edges:";
+  }
+
+  String getWeightedNodeMessage() {
+    if (askForNodeInformation()) {
+      return "Weights on nodes:";
+    }
+    return "No weights on nodes:";
+  }
+
+  bool askForEdgeInformation() => lesson.additionalInformation | lesson.askForEdges == lesson.additionalInformation;
+
+  bool askFo
